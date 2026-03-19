@@ -51,24 +51,19 @@ export default function HomePage() {
         id="home"
         className="relative bg-csl-navy overflow-hidden"
       >
-        {/* Background texture */}
-        <div className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage: `repeating-linear-gradient(
-              45deg,
-              transparent,
-              transparent 20px,
-              rgba(200,146,42,0.3) 20px,
-              rgba(200,146,42,0.3) 21px
-            )`,
-          }}
+        {/* Hero background image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/hero-bg.webp')" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-csl-navy via-csl-navy to-csl-navy-dark" />
+        {/* Dark overlay so text stays legible */}
+        <div className="absolute inset-0 bg-gradient-to-r from-csl-navy/95 via-csl-navy/80 to-csl-navy/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-csl-navy/60 via-transparent to-transparent" />
 
         {/* Gold accent line */}
         <div className="absolute top-0 left-0 right-0 h-1 bg-csl-gold" />
 
-        <div className="relative max-w-6xl mx-auto px-4 py-20 md:py-28">
+        <div className="relative max-w-6xl mx-auto px-4 py-24 md:py-32">
           <div className="max-w-2xl">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-csl-gold/20 border border-csl-gold/40 text-csl-gold text-xs font-semibold px-3 py-1.5 rounded-full mb-6">
