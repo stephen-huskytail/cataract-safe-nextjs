@@ -145,7 +145,7 @@ export default function CouponsPage() {
           <h2 className="font-heading font-bold text-2xl md:text-3xl text-white mb-3">
             Questions about our promotions?
           </h2>
-          <p className="text-white/60 mb-8">Give us a call — we're happy to help.</p>
+          <p className="text-white/60 mb-8">Give us a call — we&apos;re happy to help.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a href={BUSINESS.phone1Href} className="btn-gold py-3.5 px-8 text-base">
               <Phone className="w-5 h-5" />

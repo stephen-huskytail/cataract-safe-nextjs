@@ -133,7 +133,7 @@ export default function SafesPage() {
               <div className="bg-gray-50 rounded-2xl p-7">
                 <h3 className="font-heading font-bold text-csl-navy text-lg mb-3">Not Sure Which Safe You Need?</h3>
                 <p className="text-gray-500 text-sm leading-relaxed mb-4">
-                  Our experts will help you choose the right safe based on what you're protecting, your budget, and your installation requirements. We offer free in-store consultations.
+                  Our experts will help you choose the right safe based on what you&apos;re protecting, your budget, and your installation requirements. We offer free in-store consultations.
                 </p>
                 <a href={BUSINESS.phone1Href} className="btn-gold py-2.5 px-5 text-sm">
                   <Phone className="w-4 h-4" />
@@ -152,10 +152,10 @@ export default function SafesPage() {
             Nearly 50 Years of Safe Expertise
           </h2>
           <p className="text-gray-600 leading-relaxed mb-4">
-            Cataract Safe &amp; Lock has been selling and servicing safes in Western New York since 1976. As an authorized dealer for AMSEC and Gardall — two of the industry's most respected manufacturers — we carry safes that meet the highest standards for fire protection, burglary resistance, and reliability.
+            Cataract Safe &amp; Lock has been selling and servicing safes in Western New York since 1976. As an authorized dealer for AMSEC and Gardall — two of the industry&apos;s most respected manufacturers — we carry safes that meet the highest standards for fire protection, burglary resistance, and reliability.
           </p>
           <p className="text-gray-600 leading-relaxed">
-            Whether you're protecting family heirlooms, firearms, important documents, or business cash, we'll help you find the right safe at the right price. Visit our showroom at 1270 Depot Ave in Niagara Falls, or call us for a free consultation.
+            Whether you&apos;re protecting family heirlooms, firearms, important documents, or business cash, we&apos;ll help you find the right safe at the right price. Visit our showroom at 1270 Depot Ave in Niagara Falls, or call us for a free consultation.
           </p>
         </div>
       </section>

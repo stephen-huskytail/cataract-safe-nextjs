@@ -79,7 +79,7 @@ export default function AutomotivePage() {
               <div className="text-csl-gold text-sm font-semibold uppercase tracking-wider mb-2">Available 24 Hours a Day</div>
               <h3 className="font-heading font-bold text-white text-2xl mb-2">Locked Out Right Now?</h3>
               <p className="text-white/60 max-w-lg">
-                Don't wait — call us immediately and a technician will be dispatched to your location. We serve Niagara Falls and all of Niagara and Erie counties.
+                Don&apos;t wait — call us immediately and a technician will be dispatched to your location. We serve Niagara Falls and all of Niagara and Erie counties.
               </p>
             </div>
             <div className="flex flex-col gap-3 flex-shrink-0">
@@ -130,7 +130,7 @@ export default function AutomotivePage() {
               <div className="text-csl-gold text-4xl font-heading font-extrabold mb-2">24/7</div>
               <div className="text-white font-semibold text-lg mb-3">Emergency Automotive Service</div>
               <p className="text-white/60 text-sm mb-6">
-                Locked out evenings, weekends, or holidays? We're always available for emergency automotive locksmith calls throughout Western NY.
+                Locked out evenings, weekends, or holidays? We&apos;re always available for emergency automotive locksmith calls throughout Western NY.
               </p>
               <a href={BUSINESS.phone1Href} className="btn-gold w-full justify-center py-3.5 text-base">
                 <Phone className="w-5 h-5" />

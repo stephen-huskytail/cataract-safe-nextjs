@@ -130,7 +130,7 @@ export default function LocksmithPage() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="font-heading font-bold text-3xl text-csl-navy mb-5">
-            Niagara Falls' Trusted Locksmith Since 1976
+            Niagara Falls&apos; Trusted Locksmith Since 1976
           </h2>
           <p className="text-gray-600 leading-relaxed mb-4">
             Cataract Safe &amp; Lock has been serving homeowners and businesses throughout Niagara Falls and the surrounding Western New York area for nearly 50 years. Our experienced technicians handle everything from simple lock changes to complex master key systems — always with the professionalism and care your home or business deserves.
