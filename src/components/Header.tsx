@@ -7,7 +7,6 @@ import Link from "next/link";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
 
   const serviceLinks = [
     { label: "Locksmith Services", href: "/locksmith", icon: <Key className="w-4 h-4" /> },
@@ -59,25 +58,28 @@ export default function Header() {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-6">
-            {/* Services dropdown */}
-            <div className="relative" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
-              <button className="flex items-center gap-1 text-white/80 hover:text-csl-gold font-medium text-sm transition-colors">
-                Services <ChevronDown className={`w-3.5 h-3.5 transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
+            {/* Services dropdown — CSS-only group hover, no JS state */}
+            <div className="relative group">
+              <button className="flex items-center gap-1 text-white/80 group-hover:text-csl-gold font-medium text-sm transition-colors">
+                Services <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover:rotate-180" />
               </button>
-              {servicesOpen && (
-                <div className="absolute top-full left-0 mt-1 w-52 bg-csl-navy-light border border-white/10 rounded-xl shadow-xl py-1 z-50">
-                  {serviceLinks.map((s) => (
-                    <Link
-                      key={s.href}
-                      href={s.href}
-                      className="flex items-center gap-2.5 px-4 py-2.5 text-sm text-white/80 hover:text-csl-gold hover:bg-white/5 transition-colors"
-                    >
-                      <span className="text-csl-gold/70">{s.icon}</span>
-                      {s.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
+              {/* Invisible bridge fills gap between button and panel so mouse can travel without closing */}
+              <div className="absolute top-full left-0 w-full h-2 bg-transparent" />
+              <div className="absolute top-[calc(100%+8px)] left-0 w-52 bg-[#0f2040] border border-white/10 rounded-xl shadow-2xl py-1.5 z-50
+                            opacity-0 invisible group-hover:opacity-100 group-hover:visible
+                            translate-y-1 group-hover:translate-y-0
+                            transition-all duration-150 ease-out">
+                {serviceLinks.map((s) => (
+                  <Link
+                    key={s.href}
+                    href={s.href}
+                    className="flex items-center gap-2.5 px-4 py-3 text-sm text-white/80 hover:text-csl-gold hover:bg-white/5 transition-colors"
+                  >
+                    <span className="text-csl-gold/70">{s.icon}</span>
+                    {s.label}
+                  </Link>
+                ))}
+              </div>
             </div>
 
             {navLinks.map((link) => (
