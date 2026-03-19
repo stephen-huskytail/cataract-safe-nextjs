@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { CheckCircle, Clock, Home, Building2, Key, Phone } from "lucide-react";
 import { BUSINESS } from "@/lib/constants";
 import ServicePageLayout from "@/components/ServicePageLayout";
@@ -61,6 +62,17 @@ export default function LocksmithPage() {
                 <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
+          </div>
+
+          {/* Photo banner */}
+          <div className="rounded-2xl overflow-hidden shadow-lg mb-12">
+            <Image
+              src="/locksmith-1.webp"
+              alt="Professional locksmith installing a brass deadbolt with a full tool kit"
+              width={1200}
+              height={500}
+              className="w-full object-cover max-h-72"
+            />
           </div>
 
           {/* Services grid */}
@@ -128,16 +140,35 @@ export default function LocksmithPage() {
 
       {/* About section */}
       <section className="py-16 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="font-heading font-bold text-3xl text-csl-navy mb-5">
-            Niagara Falls&apos; Trusted Locksmith Since 1976
-          </h2>
-          <p className="text-gray-600 leading-relaxed mb-4">
-            Cataract Safe &amp; Lock has been serving homeowners and businesses throughout Niagara Falls and the surrounding Western New York area for nearly 50 years. Our experienced technicians handle everything from simple lock changes to complex master key systems — always with the professionalism and care your home or business deserves.
-          </p>
-          <p className="text-gray-600 leading-relaxed">
-            We service all major lock brands including Schlage, Kwikset, Medeco, Mul-T-Lock, and more. Whether you need a quick re-key after moving into a new home or a complete commercial access control upgrade, our team delivers fast, reliable service at a fair price.
-          </p>
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Locks flat lay image */}
+            <div className="rounded-2xl overflow-hidden shadow-xl order-2 md:order-1">
+              <Image
+                src="/locksmith-2.webp"
+                alt="Collection of residential and commercial locks, deadbolts and keys"
+                width={800}
+                height={500}
+                className="w-full object-cover"
+              />
+            </div>
+            {/* Text */}
+            <div className="order-1 md:order-2">
+              <h2 className="font-heading font-bold text-3xl text-csl-navy mb-5">
+                Niagara Falls&apos; Trusted Locksmith Since 1976
+              </h2>
+              <p className="text-gray-600 leading-relaxed mb-4">
+                Cataract Safe &amp; Lock has been serving homeowners and businesses throughout Niagara Falls and the surrounding Western New York area for nearly 50 years. Our experienced technicians handle everything from simple lock changes to complex master key systems — always with the professionalism and care your home or business deserves.
+              </p>
+              <p className="text-gray-600 leading-relaxed mb-6">
+                We service all major lock brands including Schlage, Kwikset, Medeco, Mul-T-Lock, and more. Whether you need a quick re-key after moving into a new home or a complete commercial access control upgrade, our team delivers fast, reliable service at a fair price.
+              </p>
+              <a href={BUSINESS.phone1Href} className="btn-gold text-sm py-3 px-6 inline-flex">
+                <Phone className="w-4 h-4" />
+                Call {BUSINESS.phone1}
+              </a>
+            </div>
+          </div>
         </div>
       </section>
     </ServicePageLayout>

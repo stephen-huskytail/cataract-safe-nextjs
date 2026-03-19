@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { CheckCircle, Car, Clock, Phone, Wrench, Key } from "lucide-react";
 import { BUSINESS } from "@/lib/constants";
 import ServicePageLayout from "@/components/ServicePageLayout";
@@ -96,9 +97,20 @@ export default function AutomotivePage() {
         </div>
       </section>
 
-      {/* Why choose */}
+      {/* Key fob image + why choose */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
+          {/* Image banner */}
+          <div className="rounded-2xl overflow-hidden shadow-lg mb-12">
+            <Image
+              src="/automotive-1.webp"
+              alt="Car key fobs, transponder keys, and automotive locksmith tools"
+              width={1200}
+              height={500}
+              className="w-full object-cover max-h-72"
+            />
+          </div>
+
           <div className="grid md:grid-cols-2 gap-10 items-center">
             <div>
               <h2 className="font-heading font-bold text-3xl text-csl-navy mb-5">

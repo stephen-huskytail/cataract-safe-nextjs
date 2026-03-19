@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { CheckCircle, Shield, Flame, Lock, Star, Phone } from "lucide-react";
 import { BUSINESS } from "@/lib/constants";
 import ServicePageLayout from "@/components/ServicePageLayout";
@@ -145,18 +146,63 @@ export default function SafesPage() {
         </div>
       </section>
 
-      {/* Trust copy */}
+      {/* Trust copy + showroom image */}
       <section className="py-16 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="font-heading font-bold text-3xl text-csl-navy mb-5">
-            Nearly 50 Years of Safe Expertise
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Text */}
+            <div>
+              <h2 className="font-heading font-bold text-3xl text-csl-navy mb-5">
+                Nearly 50 Years of Safe Expertise
+              </h2>
+              <p className="text-gray-600 leading-relaxed mb-4">
+                Cataract Safe &amp; Lock has been selling and servicing safes in Western New York since 1976. As an authorized dealer for AMSEC and Gardall — two of the industry&apos;s most respected manufacturers — we carry safes that meet the highest standards for fire protection, burglary resistance, and reliability.
+              </p>
+              <p className="text-gray-600 leading-relaxed mb-6">
+                Whether you&apos;re protecting family heirlooms, firearms, important documents, or business cash, we&apos;ll help you find the right safe at the right price. Visit our showroom at 1270 Depot Ave in Niagara Falls, or call us for a free consultation.
+              </p>
+              <a href={BUSINESS.phone1Href} className="btn-gold text-sm py-3 px-6 inline-flex">
+                <Phone className="w-4 h-4" />
+                Call for a Free Consultation
+              </a>
+            </div>
+            {/* Showroom image */}
+            <div className="rounded-2xl overflow-hidden shadow-xl">
+              <Image
+                src="/safes-1.webp"
+                alt="Safe showroom display at Cataract Safe & Lock — AMSEC and Gardall authorized dealer"
+                width={800}
+                height={500}
+                className="w-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Safe dial image banner */}
+      <section className="relative overflow-hidden bg-csl-navy py-20">
+        <div className="absolute inset-0">
+          <Image
+            src="/hero-bg.webp"
+            alt="Vintage safe combination dial"
+            fill
+            className="object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-csl-navy via-csl-navy/80 to-csl-navy/60" />
+        </div>
+        <div className="relative max-w-3xl mx-auto px-4 text-center">
+          <p className="text-csl-gold font-semibold text-sm uppercase tracking-widest mb-3">Authorized Dealer</p>
+          <h2 className="font-heading font-bold text-3xl md:text-4xl text-white mb-4">
+            AMSEC &amp; Gardall — Industry-Leading Safe Brands
           </h2>
-          <p className="text-gray-600 leading-relaxed mb-4">
-            Cataract Safe &amp; Lock has been selling and servicing safes in Western New York since 1976. As an authorized dealer for AMSEC and Gardall — two of the industry&apos;s most respected manufacturers — we carry safes that meet the highest standards for fire protection, burglary resistance, and reliability.
+          <p className="text-white/70 leading-relaxed mb-8">
+            We carry the full line of AMSEC and Gardall safes, from compact home safes to commercial-grade fire &amp; burglary rated units. Stop by our showroom at 1270 Depot Ave or call to discuss your needs.
           </p>
-          <p className="text-gray-600 leading-relaxed">
-            Whether you&apos;re protecting family heirlooms, firearms, important documents, or business cash, we&apos;ll help you find the right safe at the right price. Visit our showroom at 1270 Depot Ave in Niagara Falls, or call us for a free consultation.
-          </p>
+          <a href={BUSINESS.phone1Href} className="btn-gold py-3.5 px-8">
+            <Phone className="w-4 h-4" />
+            {BUSINESS.phone1}
+          </a>
         </div>
       </section>
     </ServicePageLayout>

@@ -19,6 +19,7 @@ import {
 import { BUSINESS, SERVICES, SERVICE_AREAS, TRUST_ITEMS } from "@/lib/constants";
 import Header from "@/components/Header";
 import Link from "next/link";
+import Image from "next/image";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import Testimonials from "@/components/Testimonials";
@@ -53,65 +54,86 @@ export default function HomePage() {
         id="home"
         className="relative bg-csl-navy overflow-hidden"
       >
-        {/* Hero background image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/hero-bg.webp')" }}
-        />
-        {/* Faded overlay — navy on left (text area), blending to subtle image on right */}
-        <div className="absolute inset-0 bg-gradient-to-r from-csl-navy via-csl-navy/90 to-csl-navy/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-csl-navy/70 via-transparent to-transparent" />
-        {/* Global darkening so image reads as texture, not distraction */}
-        <div className="absolute inset-0 bg-csl-navy/40" />
+        {/* Subtle dark texture */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_#0f2040_0%,_#0a1628_60%)]" />
 
         {/* Gold accent line */}
         <div className="absolute top-0 left-0 right-0 h-1 bg-csl-gold" />
 
-        <div className="relative max-w-6xl mx-auto px-4 py-24 md:py-32">
-          <div className="max-w-2xl">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-csl-gold/20 border border-csl-gold/40 text-csl-gold text-xs font-semibold px-3 py-1.5 rounded-full mb-6">
-              <Lock className="w-3.5 h-3.5" />
-              Serving Niagara Falls Since 1976
+        <div className="relative max-w-6xl mx-auto px-4 py-20 md:py-28">
+          <div className="grid md:grid-cols-2 gap-10 items-center">
+
+            {/* ── Left: text ── */}
+            <div>
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 bg-csl-gold/20 border border-csl-gold/40 text-csl-gold text-xs font-semibold px-3 py-1.5 rounded-full mb-6">
+                <Lock className="w-3.5 h-3.5" />
+                Serving Niagara Falls Since 1976
+              </div>
+
+              {/* Headline */}
+              <h1 className="font-heading font-extrabold text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-6">
+                Your Trusted
+                <span className="text-csl-gold"> Locksmith</span> &amp;
+                <br />
+                Safe Dealer in
+                <br />
+                Niagara Falls
+              </h1>
+
+              <p className="text-white/70 text-lg md:text-xl mb-8 leading-relaxed">
+                Locally owned &amp; operated since 1976. Expert locksmith services,
+                safe sales &amp; service, and automotive locksmith. AAA affiliated with
+                free estimates on all services.
+              </p>
+
+              {/* CTA buttons */}
+              <div className="flex flex-col sm:flex-row gap-3 mb-10">
+                <a href={BUSINESS.phone1Href} className="btn-gold text-base py-3.5 px-7 shadow-lg">
+                  <Phone className="w-5 h-5" />
+                  {BUSINESS.phone1}
+                </a>
+                <a href={BUSINESS.phone2Href} className="btn-outline-gold text-base py-3.5 px-7">
+                  <Phone className="w-5 h-5" />
+                  {BUSINESS.phone2}
+                </a>
+              </div>
+
+              {/* Trust badges */}
+              <div className="flex flex-wrap gap-4">
+                {trustedBadges.map((badge) => (
+                  <div key={badge.text} className="flex items-center gap-2 text-white/70 text-sm">
+                    {badge.icon}
+                    <span>{badge.text}</span>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            {/* Headline */}
-            <h1 className="font-heading font-extrabold text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-6">
-              Your Trusted
-              <span className="text-csl-gold"> Locksmith</span> &amp;
-              <br />
-              Safe Dealer in
-              <br />
-              Niagara Falls
-            </h1>
-
-            <p className="text-white/70 text-lg md:text-xl mb-8 leading-relaxed">
-              Locally owned &amp; operated since 1976. Expert locksmith services,
-              safe sales &amp; service, and automotive locksmith. AAA affiliated with
-              free estimates on all services.
-            </p>
-
-            {/* CTA buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 mb-10">
-              <a href={BUSINESS.phone1Href} className="btn-gold text-base py-3.5 px-7 shadow-lg">
-                <Phone className="w-5 h-5" />
-                {BUSINESS.phone1}
-              </a>
-              <a href={BUSINESS.phone2Href} className="btn-outline-gold text-base py-3.5 px-7">
-                <Phone className="w-5 h-5" />
-                {BUSINESS.phone2}
-              </a>
-            </div>
-
-            {/* Trust badges */}
-            <div className="flex flex-wrap gap-4">
-              {trustedBadges.map((badge) => (
-                <div key={badge.text} className="flex items-center gap-2 text-white/70 text-sm">
-                  {badge.icon}
-                  <span>{badge.text}</span>
+            {/* ── Right: image ── */}
+            <div className="hidden md:flex justify-center items-center">
+              <div className="relative w-full max-w-md">
+                {/* Gold glow behind image */}
+                <div className="absolute -inset-3 rounded-3xl bg-csl-gold/20 blur-xl" />
+                {/* Gold border frame */}
+                <div className="relative rounded-2xl overflow-hidden border-2 border-csl-gold/50 shadow-2xl">
+                  <Image
+                    src="/hero-bg.webp"
+                    alt="Gold combination dial on a vintage safe — Cataract Safe & Lock, Niagara Falls NY"
+                    width={640}
+                    height={480}
+                    className="w-full object-cover"
+                    priority
+                  />
+                  {/* Bottom tag */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-csl-navy/90 to-transparent px-5 py-4">
+                    <p className="text-csl-gold font-semibold text-sm">Authorized AMSEC &amp; Gardall Dealer</p>
+                    <p className="text-white/60 text-xs mt-0.5">Safe Sales &amp; Service · Est. 1976</p>
+                  </div>
                 </div>
-              ))}
+              </div>
             </div>
+
           </div>
         </div>
       </section>
