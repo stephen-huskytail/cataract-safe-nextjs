@@ -13,36 +13,20 @@ export const metadata: Metadata = {
 
 const coupons = [
   {
-    badge: "Locksmith",
-    title: "Free Re-Key",
-    highlight: "with any new deadbolt installation",
-    terms: "One lock per visit. Residential only. Cannot be combined with other offers.",
+    badge: "Safes",
+    title: "15% Off",
+    highlight: "All Safes",
+    terms: "In-store purchase only. Cannot be combined with other offers. While supplies last.",
     color: "border-csl-gold",
     badgeColor: "bg-csl-gold text-white",
   },
   {
-    badge: "Safes",
-    title: "$25 Off",
-    highlight: "any safe purchase over $200",
-    terms: "In-store purchase only. Cannot be combined with other offers. While supplies last.",
+    badge: "Service",
+    title: "$10.00 Off",
+    highlight: "Any Service Call",
+    terms: "Mention this offer when calling. One per customer. Cannot be combined with other offers.",
     color: "border-blue-400",
     badgeColor: "bg-csl-navy text-white",
-  },
-  {
-    badge: "Automotive",
-    title: "Free Key Fob",
-    highlight: "programming with any car key replacement",
-    terms: "Applicable models only. One vehicle per visit. Call to confirm compatibility.",
-    color: "border-green-400",
-    badgeColor: "bg-green-700 text-white",
-  },
-  {
-    badge: "Emergency",
-    title: "10% Off",
-    highlight: "any emergency lockout service",
-    terms: "Mention this offer when calling. Residential & automotive. One per customer.",
-    color: "border-orange-400",
-    badgeColor: "bg-orange-600 text-white",
   },
 ];
 
