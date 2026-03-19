@@ -46,6 +46,8 @@ export default function LocksmithPage() {
       title="Locksmith Services"
       subtitle="Expert locksmith services for homeowners and businesses throughout Niagara Falls and Western NY. Trusted since 1976 — licensed, bonded, and fully insured."
       heroTagline="Licensed & Bonded · Since 1976"
+      heroImage="/locksmith-1.webp"
+      heroImageAlt="Professional locksmith installing a brass deadbolt lock"
     >
       {/* Why choose us */}
       <section className="py-16 bg-white">

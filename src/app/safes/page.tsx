@@ -72,6 +72,8 @@ export default function SafesPage() {
       title="Safe Sales & Service"
       subtitle="Authorized dealer for AMSEC and Gardall safes — two of the most trusted names in security. We carry fire safes, gun safes, jewelry safes, depository safes, and more for residential and commercial customers."
       heroTagline="Authorized AMSEC & Gardall Dealer"
+      heroImage="/safes-1.webp"
+      heroImageAlt="AMSEC safe showroom display — authorized dealer"
     >
       {/* Safe types grid */}
       <section className="py-16 bg-white">
@@ -141,6 +143,56 @@ export default function SafesPage() {
                   Talk to an Expert
                 </a>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Product showcase grid */}
+      <section className="py-16 bg-csl-navy">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-10">
+            <p className="text-csl-gold font-semibold text-sm uppercase tracking-widest mb-2">In Stock at Our Store</p>
+            <h2 className="font-heading font-bold text-3xl text-white">Safe Products We Carry</h2>
+          </div>
+          <div className="grid sm:grid-cols-3 gap-6 mb-10">
+            {[
+              { src: "/safe-product-1.jpg", label: "Gardall Fire Safe", desc: "UL-rated fire protection with adjustable shelving. Ideal for home & office documents." },
+              { src: "/safe-product-3.jpg", label: "Gardall Electronic Safe", desc: "Digital keypad + key backup. Burglary-resistant steel construction with Gardall reliability." },
+              { src: "/safe-product-2.png", label: "AMSEC Depository Safe", desc: "Top-drop slot for cash deposits. Built for retail & commercial use — combination dial lock." },
+            ].map((p) => (
+              <div key={p.src} className="bg-white rounded-2xl overflow-hidden shadow-lg group">
+                <div className="bg-gray-50 flex items-center justify-center p-6 h-56">
+                  <Image
+                    src={p.src}
+                    alt={p.label}
+                    width={260}
+                    height={200}
+                    className="object-contain max-h-44 group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-5">
+                  <h3 className="font-heading font-bold text-csl-navy text-base mb-1">{p.label}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{p.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Actual showroom photo */}
+          <div className="rounded-2xl overflow-hidden shadow-2xl relative">
+            <Image
+              src="/safe-product-4.jpg"
+              alt="Cataract Safe & Lock showroom — American Security and Gardall safes on display"
+              width={1200}
+              height={600}
+              className="w-full object-cover max-h-96"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-csl-navy/80 via-transparent to-transparent" />
+            <div className="absolute bottom-0 left-0 p-6">
+              <p className="text-csl-gold font-semibold text-sm uppercase tracking-widest mb-1">Visit Us</p>
+              <h3 className="font-heading font-bold text-white text-2xl">Our Niagara Falls Showroom</h3>
+              <p className="text-white/70 text-sm mt-1">1270 Depot Ave, Niagara Falls, NY · Mon–Fri 8am–5pm, Sat 9am–1pm</p>
             </div>
           </div>
         </div>

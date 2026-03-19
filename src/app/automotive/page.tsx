@@ -49,6 +49,8 @@ export default function AutomotivePage() {
       title="Automotive Locksmith"
       subtitle="Locked out of your car, truck, or SUV? Lost your keys? Our automotive locksmith technicians provide fast, professional service for all makes and models — with no damage to your vehicle."
       heroTagline="All Makes & Models · 24/7 Service"
+      heroImage="/automotive-1.webp"
+      heroImageAlt="Car key fobs and automotive locksmith tools"
     >
       {/* Services */}
       <section className="py-16 bg-white">
