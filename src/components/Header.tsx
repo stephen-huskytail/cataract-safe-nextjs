@@ -1,17 +1,24 @@
 "use client";
 
 import { useState } from "react";
-import { Phone, Menu, X, Lock } from "lucide-react";
+import { Phone, Menu, X, Lock, ChevronDown, Key, Shield, Car, Tag } from "lucide-react";
 import { BUSINESS } from "@/lib/constants";
+import Link from "next/link";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+
+  const serviceLinks = [
+    { label: "Locksmith Services", href: "/locksmith", icon: <Key className="w-4 h-4" /> },
+    { label: "Safe Sales & Service", href: "/safes", icon: <Shield className="w-4 h-4" /> },
+    { label: "Automotive Locksmith", href: "/automotive", icon: <Car className="w-4 h-4" /> },
+  ];
 
   const navLinks = [
-    { label: "Services", href: "#services" },
-    { label: "About Us", href: "#about" },
-    { label: "Service Area", href: "#service-area" },
-    { label: "Contact", href: "#contact" },
+    { label: "About Us", href: "/#about" },
+    { label: "Service Area", href: "/#service-area" },
+    { label: "Contact", href: "/#contact" },
   ];
 
   return (
@@ -52,15 +59,42 @@ export default function Header() {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-6">
+            {/* Services dropdown */}
+            <div className="relative" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
+              <button className="flex items-center gap-1 text-white/80 hover:text-csl-gold font-medium text-sm transition-colors">
+                Services <ChevronDown className={`w-3.5 h-3.5 transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
+              </button>
+              {servicesOpen && (
+                <div className="absolute top-full left-0 mt-1 w-52 bg-csl-navy-light border border-white/10 rounded-xl shadow-xl py-1 z-50">
+                  {serviceLinks.map((s) => (
+                    <Link
+                      key={s.href}
+                      href={s.href}
+                      className="flex items-center gap-2.5 px-4 py-2.5 text-sm text-white/80 hover:text-csl-gold hover:bg-white/5 transition-colors"
+                    >
+                      <span className="text-csl-gold/70">{s.icon}</span>
+                      {s.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 className="text-white/80 hover:text-csl-gold font-medium text-sm transition-colors"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
+
+            {/* Coupons */}
+            <Link href="/coupons" className="flex items-center gap-1.5 text-csl-gold hover:text-csl-gold-light font-semibold text-sm transition-colors">
+              <Tag className="w-3.5 h-3.5" />
+              Coupons
+            </Link>
           </nav>
 
           {/* CTA */}
@@ -87,18 +121,40 @@ export default function Header() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-csl-navy-light border-t border-white/10 px-4 py-4 space-y-3">
-          {navLinks.map((link) => (
-            <a
+        <div className="md:hidden bg-csl-navy-light border-t border-white/10 px-4 py-4 space-y-1">
+          {/* Service links */}
+          <div className="text-white/40 text-xs font-semibold uppercase tracking-wider px-1 pt-1 pb-1">Services</div>
+          {serviceLinks.map((link) => (
+            <Link
               key={link.href}
               href={link.href}
-              className="block text-white/80 hover:text-csl-gold font-medium py-1.5 transition-colors"
+              className="flex items-center gap-2.5 text-white/80 hover:text-csl-gold font-medium py-2 px-1 transition-colors"
+              onClick={() => setMenuOpen(false)}
+            >
+              <span className="text-csl-gold/60">{link.icon}</span>
+              {link.label}
+            </Link>
+          ))}
+          <div className="border-t border-white/10 pt-2 mt-1" />
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="block text-white/80 hover:text-csl-gold font-medium py-2 px-1 transition-colors"
               onClick={() => setMenuOpen(false)}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
-          <div className="pt-2 space-y-2">
+          <Link
+            href="/coupons"
+            className="flex items-center gap-1.5 text-csl-gold font-semibold py-2 px-1"
+            onClick={() => setMenuOpen(false)}
+          >
+            <Tag className="w-4 h-4" />
+            Coupons & Promotions
+          </Link>
+          <div className="pt-3 space-y-2">
             <a href={BUSINESS.phone1Href} className="btn-gold w-full justify-center">
               <Phone className="w-4 h-4" />
               {BUSINESS.phone1}

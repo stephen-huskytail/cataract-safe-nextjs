@@ -57,9 +57,11 @@ export default function HomePage() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: "url('/hero-bg.webp')" }}
         />
-        {/* Dark overlay so text stays legible */}
-        <div className="absolute inset-0 bg-gradient-to-r from-csl-navy/95 via-csl-navy/80 to-csl-navy/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-csl-navy/60 via-transparent to-transparent" />
+        {/* Faded overlay — navy on left (text area), blending to subtle image on right */}
+        <div className="absolute inset-0 bg-gradient-to-r from-csl-navy via-csl-navy/90 to-csl-navy/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-csl-navy/70 via-transparent to-transparent" />
+        {/* Global darkening so image reads as texture, not distraction */}
+        <div className="absolute inset-0 bg-csl-navy/40" />
 
         {/* Gold accent line */}
         <div className="absolute top-0 left-0 right-0 h-1 bg-csl-gold" />
