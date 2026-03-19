@@ -20,6 +20,7 @@ import { BUSINESS, SERVICES, SERVICE_AREAS, TRUST_ITEMS } from "@/lib/constants"
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
+import Testimonials from "@/components/Testimonials";
 
 export const metadata: Metadata = {
   title: "Locksmith & Safe Dealer Niagara Falls NY | Since 1976",
@@ -318,6 +319,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ─── TESTIMONIALS ─────────────────────────────────────── */}
+      <Testimonials />
 
       {/* ─── CONTACT ──────────────────────────────────────────── */}
       <section id="contact" className="py-20 bg-gray-50">
