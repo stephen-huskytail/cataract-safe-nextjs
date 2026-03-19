@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { BUSINESS, SERVICES, SERVICE_AREAS, TRUST_ITEMS } from "@/lib/constants";
 import Header from "@/components/Header";
+import Link from "next/link";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import Testimonials from "@/components/Testimonials";
@@ -174,6 +175,14 @@ export default function HomePage() {
                     </li>
                   ))}
                 </ul>
+
+                <Link
+                  href={`/${service.id}`}
+                  className="inline-flex items-center gap-1.5 text-csl-gold font-semibold text-sm mt-5 hover:gap-3 transition-all group"
+                >
+                  Learn more
+                  <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                </Link>
               </div>
             ))}
           </div>
